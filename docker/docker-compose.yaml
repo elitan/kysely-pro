@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16.1
+    # image: ankane/pgvector:v0.5.1 # (AI)
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
