@@ -11,7 +11,7 @@ docker compose up -d
 ## Install Kysely, other dependencies
 
 ```bash
-npm install --save-dev typescript ts-node @types/node kysely pg @types/pg kysely-codegen
+npm install typescript ts-node @types/node kysely pg @types/pg kysely-codegen dotenv
 ```
 
 ## Initialize TypeScript
@@ -43,6 +43,7 @@ In `src/utils/db.ts`:
 import { CamelCasePlugin, Kysely, PostgresDialect } from "kysely";
 import { type DB } from "./kysely-types";
 import { Pool } from "pg";
+import "dotenv/config";
 
 export const db = new Kysely<DB>({
   dialect: new PostgresDialect({
